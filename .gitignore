@@ -1,0 +1,7 @@
+.venv
+.vscode
+__pycache__/
+# Django stuff:
+*.log
+*.pot
+*.mo
