@@ -1,4 +1,5 @@
-# Instalação e Configuração do Ambiente de Trabalho
+# Preparando o Ambiente de Trabalho
+<br>
 
 ## Instalação do Python e Ambiente Virtual
 - instalar Python
@@ -50,10 +51,9 @@
 - gerar uma chave SSH:
     ```
     # serão gerados os arquivos id_rsa e id_rsa.pub, no diretório .ssh
-    # 
     ssh-keygen  -t rsa -b 4096 -C "jloudias@gmail.com"
     ```
-- no GitHub/Settings/SSH and GPG keys
+- no site do GitHub, em Settings/SSH and GPG keys
     ```
     > clicar no botão New SSh key
     > definir um nome para chave
@@ -67,5 +67,12 @@
 - criar os arquivos: 
   - `.gitignore` -> arquivos e pastas a serem excluídos da sincronização
   - `README.md`  -> descrição do repositório
+<br> <br>
+- sincronizar o repositório:
+    ```
+    git add .
+    git commit -m "first commit"
+    git push
+    ```
 
 	
