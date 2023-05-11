@@ -1,5 +1,9 @@
-# Curso de Django 4
+# Curso de Django 4 - Exercícios e Anotações
 
-Exercícios do curso de Django Web Framework e Django Rest Framework.
+Origem: Udemy
+
+Curso: [Curso de Django Web Framework e Django Rest Framework.](https://www.udemy.com/course/curso-de-django-web-framework-com-python-html-e-css/)
 
 Instrutor: Luiz Otávio Miranda 
+
+
