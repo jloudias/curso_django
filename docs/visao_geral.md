@@ -1,4 +1,5 @@
 # Visão Geral 
+<br>
 
 ## Workflow
 |SEQ|AÇÃO|CÓDIGO|
@@ -109,18 +110,28 @@
         path("", views.index, name='index')
         path("about", views.about, name="about")
     ]
-	````
+	  ```
 
 ## Templates
 
-- Django busca conteúdo HMTL na pasta 'templates' -> criar
+- exibe a página de resposta ao usuário de uma forma amigável
+- o django busca os templates em arquivos HTML na pasta 'templates' -> criar
 - erro "Template Does Not Exist":
   - aplicação não está registrada em INSTALLED_APPS, em settings.py
   - erro de namespace:
     - configurar DIRS[], em TEMPLATES, settings.py
+    - Exemplo:
+  ```
+    TEMPLATES = [
+      ...
+      'DIRS':[ 
+        BASE_DIR / 'base_templates',
+        ],
+    ]
+  ```
 
 
-  `DICA` crie subpastas dentro da pasta 'templates' e use path relativo
+  `DICA: ` crie estrutura de arquivos e pastas dentro da pasta 'templates' e use path relativo
 
 ### Função render()
 
@@ -142,3 +153,15 @@
     status = 200
   )
   ```
+
+### Linguagem de template
+
+| TAG/FILTER | DESCRIÇÃO/EXEMPLO |
+|:---:|:---|
+|{% code %}| códigos como loops, condições, comparações,etc|
+|{{ variável }}| renderiza uma variável passada|
+|{{ variável \| default:'nothing'}}| filtrar valor default para variável|
+
+- [A linguagem de template do Django](https://docs.djangoproject.com/pt-br/4.2/ref/templates/language/)
+- [Referência para tags e filters](https://docs.djangoproject.com/pt-br/4.2/ref/templates/builtins/#)
+
