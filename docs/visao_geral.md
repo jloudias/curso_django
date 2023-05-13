@@ -11,18 +11,32 @@
 |6| Incluir rota no urls.py do projeto|import django.urls import path, include urlpatterns = [ ... ]|
 |7| Criar template|criar pasta templates na aplicação criar html e lançar na views.py com render()|
 
+## Diferença entre Projeto e Aplicação
 
+- PROJETO:
+  - é uma instalação do Django com algumas configurações
+- APLICAÇÃO:
+  - é um grupo de models, views, templates e urls.
+  - interage com o framework para prover funcionalidades específicas
+  - podem ser reutilizadas por outros projetos
+
+
+> PROJETO é o site web e pode conter várias APLICAÇÕES,como: blog, wiki, forum, etc.
 
 ## Aplicações
-- projeto pode ter uma ou mais aplicações e uma aplicação pode ser utilizada em diversos projetos
-- aplicação coresponde a um módulo do site, tipo: 'livro_de _ocorrências', 'blog', 'administração'.
+- padrão MVT(Model-View-Template):
+  - semelhante ao MVC(Model-View-Controller)
+  - Views ~ Controllers (Laravel) 
+  - Templates ~ Views (Laravel)
 - criando uma aplicação:
-	- python manage.py startapp <nome_app>
+    ```
+    python manage.py startapp <nome_app>
+    ```
 - registrar a aplicação no projeto (evita erro "Template Not Found")
 	- settings.py
 	- INSTALLED_APPS
-    	- § '<nome_app>',
-- aplicações instaladas por default no 
+    	- § '<nome_app_registrado_em_apps.py>',
+- aplicações instaladas por default: 
     - admin --> gerenciar nossos dados
     - auth --> autenticação de usuários
     - contenttypes
@@ -36,11 +50,11 @@
 |:---|:---|
 | migrations| pasta com arquivos para gerenciamento de tabelas|
 | `__init__.py`| controle de pacotes|
-| admin.py| gerenciar como a interface admin vai funcionar para esta app|
-| apps.py| module de configuração desta app|
+| admin.py| registre os models aqui, para que a app admin possa gerencia-los (CRUD e outros)|
+| apps.py| subclasse herdada de AppConfig para configuração desta app, |
 | models.py| classes model para a app (semelhante ao Model do PHP)|
 | tests.py| unidades de testes (test unit)|
-| views.py| contém as requisições do app (semelhante ao Controller do PHP)|
+| views.py| contém a lógica para atender requisições do app (semelhante ao Controller do PHP)|
 | urls.py| criado pelo usuário para inclusão no urls.py do projeto|
 | templates| pasta criada pelo usuário para conter os templates (arquivos HTML)|
 
@@ -63,11 +77,17 @@
     - django busca na pasta templates
 
 ## Urls
-  - urls.py
+  - urls.py (criado pelo desenvolvedor)
   - arquivo de rotas 
-  - importar urls.py das apps para o url.py do projeto
   - a função `path(rota, view)` passa um objeto `request` para a função chamada
   - a função chamada deve retornar um objeto `response`
+  - `DICA` -> importar urls.py das apps para o urls.py do projeto
+    - função `include` deve ser importada de `django.urls`
+      - recebe 'nome_da_aplicação.nome_arquivo_urls'
+  - para acessar views do diretório corrente:
+    ```
+    from . import views
+    ```
 
 ### Modelos de arquivos urls.py
   - urls.py (projeto)
@@ -78,6 +98,7 @@
     urlpatterns =[
         path("admin", admin.site.urls),
         path("siscond", include('siscond.urls))
+    ]
     ```
   - urls.py (aplicação)
 
@@ -87,4 +108,37 @@
     urlpatterns =[
         path("", views.index, name='index')
         path("about", views.about, name="about")
+    ]
 	````
+
+## Templates
+
+- Django busca conteúdo HMTL na pasta 'templates' -> criar
+- erro "Template Does Not Exist":
+  - aplicação não está registrada em INSTALLED_APPS, em settings.py
+  - erro de namespace:
+    - configurar DIRS[], em TEMPLATES, settings.py
+
+
+  `DICA` crie subpastas dentro da pasta 'templates' e use path relativo
+
+### Função render()
+
+- importada no views.py
+- parâmetros:
+  - requer o objeto request
+  - path para o template
+  - context -> dicionário com nome da variável e valor a serem passados
+  - status -> status da conexão HTTP
+
+**Exemplo:**
+  ```
+  return render(
+    request, 
+    'recipes/home.html', 
+    context = {
+      'name':'Jorge Dias',
+    },
+    status = 200
+  )
+  ```

@@ -19,12 +19,12 @@ from recipes import views
 
 # testing section
 # from django.http import HttpResponse
-# def teste(request):
+# def test(request):
 #     return HttpResponse("This is a test...")
 
 urlpatterns = [
-    # path("teste/", teste), 
+    # path("test/", teste), 
     path('admin/', admin.site.urls),
-    path("", views.index),
+    path('', views.index), # views imported from recipes (see import section above)
     path('recipes/', include('recipes.urls')),
 ]

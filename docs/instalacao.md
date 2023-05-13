@@ -79,6 +79,32 @@
 | urls.py     | rotas do projeto                   |
 | wsgi        | configura conexão com servidor web |
 | `__pycache__` | pasta de cache do django           |
+<br>
+
+### Arquivo settings.py
+
+As seguintes configurações merecem destaque:
+
+- DEBUG:
+  - habilita/desabilita o modo debug do projeto.
+  - qdo em produção deve ser configurado para FALSE.
+- ALLOWED_HOSTS
+  - não se aplica no modo DEBUG.
+  - qdo em modo produção, adicione o domain/host, para permitir q sirva o site em Django.
+- INSTALLED_APPS:
+  - informa ao Django quais aplicações estão ativas no site.
+- MIDDLEWARE_CLASSES:
+  - tupla com os middlewares a serem executados.
+- ROOT_URLCONF:
+  - indica o módulo Python onde as rotas são definidas.
+  - caminho para urls.py geral, onde está a lista URL_PATTERNS.
+- DATABASES:
+  - dicionário com as configurações das bases de dados do projeto.
+  - é obrigatório definir um banco de dados padrão.
+  - defult -> SQLite3 database.
+- LANGUAGE_CODE:
+  - língua default do site
+
 
 ## Configuração do GitHub
 - criar repositório <projeto_nome> no GitHub
