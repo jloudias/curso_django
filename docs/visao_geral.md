@@ -35,7 +35,7 @@
 |ITEM|FUNÇÃO|
 |:---|:---|
 | migrations| pasta com arquivos para gerenciamento de tabelas|
-| __init__.py| controle de pacotes|
+| `__init__.py`| controle de pacotes|
 | admin.py| gerenciar como a interface admin vai funcionar para esta app|
 | apps.py| module de configuração desta app|
 | models.py| classes model para a app (semelhante ao Model do PHP)|
@@ -66,6 +66,10 @@
   - urls.py
   - arquivo de rotas 
   - importar urls.py das apps para o url.py do projeto
+  - a função `path(rota, view)` passa um objeto `request` para a função chamada
+  - a função chamada deve retornar um objeto `response`
+
+### Modelos de arquivos urls.py
   - urls.py (projeto)
 
     ```

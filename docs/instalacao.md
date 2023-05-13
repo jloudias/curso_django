@@ -22,6 +22,30 @@
     copiar o path do python no ambiente virtual
     ```
   `ATENÇÃO` vscode só inicializa automaticamente ambiente virtual se houver algum arquivo .py aberto 
+- criar o arquivo `launch.json` para debug do Django:
+  - vscode orienta criação no primeiro debug
+  - armazenado na pasta .vscode
+    ```
+    {
+        // Use o IntelliSense para saber mais sobre os atributos possíveis.
+        // Focalizar para exibir as descrições dos atributos existentes.
+        // Para obter mais informações, acesse: https://go.microsoft.com/fwlink/?linkid=830387
+        "version": "0.2.0",
+        "configurations": [
+            {
+                "name": "Python: Django",
+                "type": "python",
+                "request": "launch",
+                "program": "${workspaceFolder}\\manage.py",
+                "args": [
+                    "runserver"
+                ],
+                "django": true,
+                "justMyCode": true
+            }
+        ]
+    }
+    ```
 
 ## Instalação do Django
 - instalando pré-requisitos
@@ -45,6 +69,16 @@
     python manage.py runserver
     visualizar site no navegador.(http://localhost:8000)
     ```
+### Estrutura inicial de um projeto
+
+|     Item    |              Descrição             |
+|:-----------:|:----------------------------------:|
+| `__init__.py` | define a pasta como pacote do Python|
+| asgi.py     | configura conexão com servidor web |
+| settings.py | configurações do projeto           |
+| urls.py     | rotas do projeto                   |
+| wsgi        | configura conexão com servidor web |
+| `__pycache__` | pasta de cache do django           |
 
 ## Configuração do GitHub
 - criar repositório <projeto_nome> no GitHub

@@ -14,6 +14,8 @@
 
 ### Links
 
+- [Otávio Miranda no Youtube](https://www.youtube.com/otaviomiranda)
+- [Documentação do Django](https://docs.djangoproject.com/pt-br/4.2/)
 
 
 

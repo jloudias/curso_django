@@ -17,8 +17,13 @@ from django.contrib import admin
 from django.urls import path, include
 from recipes import views
 
+# testing section
+# from django.http import HttpResponse
+# def teste(request):
+#     return HttpResponse("This is a test...")
 
 urlpatterns = [
+    # path("teste/", teste), 
     path('admin/', admin.site.urls),
     path("", views.index),
     path('recipes/', include('recipes.urls')),
