@@ -21,7 +21,7 @@
 
 ### Arquivos não atrelados a uma app
 
-- configurar no `settings.py`, criar a lista `STATICFILES_DIR`  e adicionar os diretórios desejados
+- configurar no `settings.py`, criar a lista `STATICFILES_DIRS`  e adicionar os diretórios desejados
 - Exemplo:
   - criar pasta *base_static* no diretório raiz do projeto
   - não esquecer do namespace `namespace` (global/css , por exemplo)

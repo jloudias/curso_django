@@ -1,7 +1,7 @@
-# Visão Geral 
+## Visão Geral 
 <br>
 
-## Workflow
+### Workflow
 |SEQ|AÇÃO|CÓDIGO|
 |:--:|:---|:---:|
 |1| Criar o projeto|django-admin startproject <projeto>|
@@ -12,7 +12,7 @@
 |6| Incluir rota no urls.py do projeto|import django.urls import path, include urlpatterns = [ ... ]|
 |7| Criar template|criar pasta templates na aplicação criar html e lançar na views.py com render()|
 
-## Diferença entre Projeto e Aplicação
+### Diferença entre Projeto e Aplicação
 
 - PROJETO:
   - é uma instalação do Django com algumas configurações
@@ -24,7 +24,7 @@
 
 > PROJETO é o site web e pode conter várias APLICAÇÕES,como: blog, wiki, forum, etc.
 
-## Aplicações
+### Aplicações
 - padrão MVT(Model-View-Template):
   - semelhante ao MVC(Model-View-Controller)
   - Views ~ Controllers (Laravel) 
@@ -45,7 +45,7 @@
     - messages --> exibe notificações para usuários
     - staticfiles --> servidor de arquivos estáticos: imagens, arquivos CSS, etc
 
-### Estrutura padrão de uma aplicação
+#### Estrutura padrão de uma aplicação
 
 |ITEM|FUNÇÃO|
 |:---|:---|
@@ -59,7 +59,7 @@
 | urls.py| criado pelo usuário para inclusão no urls.py do projeto|
 | templates| pasta criada pelo usuário para conter os templates (arquivos HTML)|
 
-## Views
+### Views
   - views.py 
   - semelhantes aos Controllers, no Laravel
   - contém as ações a serem excutadas
@@ -77,7 +77,7 @@
     ```
     - django busca na pasta templates
 
-## Urls
+### Urls
   - urls.py (criado pelo desenvolvedor)
   - arquivo de rotas 
   - a função `path(rota, view)` passa um objeto `request` para a função chamada
@@ -90,7 +90,7 @@
     from . import views
     ```
 
-### Modelos de arquivos urls.py
+#### Modelos de arquivos urls.py
   - urls.py (projeto)
 
     ```
@@ -112,7 +112,7 @@
     ]
 	  ```
 
-## Templates
+### Templates
 
 - exibe a página de resposta ao usuário de uma forma amigável
 - o django busca os templates em arquivos HTML na pasta 'templates' -> criar
@@ -133,7 +133,7 @@
 
   `DICA: ` crie estrutura de arquivos e pastas dentro da pasta 'templates' e use path relativo
 
-### Função render()
+#### Função render()
 
 - importada no views.py
 - parâmetros:
@@ -154,7 +154,7 @@
   )
   ```
 
-### Linguagem de template
+#### Linguagem de template
 
 | TAG/FILTER | DESCRIÇÃO/EXEMPLO |
 |:---:|:---|

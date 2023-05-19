@@ -1,7 +1,7 @@
-# Preparando o Ambiente de Trabalho
+## Preparando o Ambiente de Trabalho
 <br>
 
-## Instalação do Python e Ambiente Virtual
+### Instalação do Python e Ambiente Virtual
 - instalar Python
   - marcar opção "Add Python to PATH"
 - criar ambiente virtual
@@ -12,7 +12,7 @@
     .venv\Scripts\activate 
     .venv\Scripts\deactivate 
     ```
-## Configuração do VSCode
+### Configuração do VSCode
 - alterar permissões do Windows para execução de scripts<br>
 `Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser`
 - usar interpretador Python do ambiente virtual
@@ -47,7 +47,7 @@
     }
     ```
 
-## Instalação do Django
+### Instalação do Django
 - instalando pré-requisitos
     ```
     .venv\Scripts\activate                  # ativa o ambiente virtual
@@ -69,7 +69,7 @@
     python manage.py runserver
     visualizar site no navegador.(http://localhost:8000)
     ```
-### Estrutura inicial de um projeto
+#### Estrutura inicial de um projeto
 
 |     Item    |              Descrição             |
 |:-----------:|:----------------------------------:|
@@ -81,7 +81,7 @@
 | `__pycache__` | pasta de cache do django           |
 <br>
 
-### Arquivo settings.py
+#### Arquivo settings.py
 
 As seguintes configurações merecem destaque:
 
@@ -106,7 +106,7 @@ As seguintes configurações merecem destaque:
   - língua default do site
 
 
-## Configuração do GitHub
+### Configuração do GitHub
 - criar repositório <projeto_nome> no GitHub
 - gerar uma chave SSH:
     ```
