@@ -1,5 +1,4 @@
-## Preparando o Ambiente de Trabalho
-<br>
+## Configurando o Ambiente de Trabalho
 
 ### Instalação do Python e Ambiente Virtual
 - instalar Python

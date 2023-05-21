@@ -1,37 +1,19 @@
-{% include 'recipes/partials/head.html' %}
+{% extends 'global/base.html' %}
+{% block title %} Home {% endblock title %}
 
-<body>
+{% block content %}
+<div class="main-content main-content-list container">
 
-  {% include 'recipes/partials/header.html' %}
-  {% include 'recipes/partials/search.html' %}
+  {% include 'recipes/partials/recipe.html' %}
+  {% include 'recipes/partials/recipe.html' %}
+  {% include 'recipes/partials/recipe.html' %}
+  {% include 'recipes/partials/recipe.html' %}
+  {% include 'recipes/partials/recipe.html' %}
+  {% include 'recipes/partials/recipe.html' %}
+  {% include 'recipes/partials/recipe.html' %}
+  {% include 'recipes/partials/recipe.html' %}
+  {% include 'recipes/partials/recipe.html' %}
 
+</div> <!-- main content -->
 
-  <!-- main-content-container begin -->
-  <main class="main-content-container">
-
-    <div class="main-content main-content-list container">
-
-      {% include 'recipes/partials/recipe.html' %}
-      {% include 'recipes/partials/recipe.html' %}
-      {% include 'recipes/partials/recipe.html' %}
-      {% include 'recipes/partials/recipe.html' %}
-      {% include 'recipes/partials/recipe.html' %}
-      {% include 'recipes/partials/recipe.html' %}
-      {% include 'recipes/partials/recipe.html' %}
-      {% include 'recipes/partials/recipe.html' %}
-      {% include 'recipes/partials/recipe.html' %}
-
-
-    </div> <!-- main content -->
-  </main>
-
-  <!-- main-content-container end -->
-
-  {% include 'recipes/partials/footer.html' %}
-
-</body>
-
-
-</body>
-
-</html>
+{% endblock content %}

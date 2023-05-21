@@ -1,5 +1,4 @@
 ## Visão Geral 
-<br>
 
 ### Workflow
 |SEQ|AÇÃO|CÓDIGO|
@@ -115,12 +114,12 @@
 ### Templates
 
 - exibe a página de resposta ao usuário de uma forma amigável
-- o django busca os templates em arquivos HTML na pasta 'templates' -> criar
+- o django busca os templates em arquivos HTML na pasta 'templates' da aplicação -> criar
 - erro "Template Does Not Exist":
   - aplicação não está registrada em INSTALLED_APPS, em settings.py
   - erro de namespace:
     - configurar DIRS[], em TEMPLATES, settings.py
-    - Exemplo:
+    - para templates fora da aplicação:
   ```
     TEMPLATES = [
       ...

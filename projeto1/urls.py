@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from recipes import views
+#from recipes import views
 
 # testing section
 # from django.http import HttpResponse
@@ -23,8 +23,8 @@ from recipes import views
 #     return HttpResponse("This is a test...")
 
 urlpatterns = [
-    # path("test/", teste), 
+    # path("test/", teste),
+    #path('', views.index), # views imported from recipes (see import section above) 
     path('admin/', admin.site.urls),
-    path('', views.index), # views imported from recipes (see import section above)
-    path('recipes/', include('recipes.urls')),
+    path('', include('recipes.urls')),
 ]
