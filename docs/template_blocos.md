@@ -1,4 +1,4 @@
-## Herança e blocos.
+## Templates: herança e blocos.
 
 ### Configurando o ambiente.
 
