@@ -16,6 +16,9 @@
 
 - [Otávio Miranda no Youtube](https://www.youtube.com/otaviomiranda)
 - [Documentação do Django](https://docs.djangoproject.com/pt-br/4.2/)
+- [LoremFlickr Free placeholder images](https://loremflickr.com/)
+- [Placehold Image placeholder service](https://placehold.co/)
+- [Add Bootstrap 5 to Django](https://www.w3schools.com/django/django_add_bootstrap5.php) 
 
 
 
