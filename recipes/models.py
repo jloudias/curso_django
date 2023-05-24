@@ -3,6 +3,8 @@ from django.contrib.auth.models import User
 
 class Category(models.Model):
     name=models.CharField(max_length=65)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self) -> str:
         return self.name
@@ -15,8 +17,8 @@ class Recipe(models.Model):
     preparation_time_unit = models.CharField(max_length=65)
     servings = models.IntegerField()
     servings_unit = models.CharField(max_length=65)
-    preparation_steps = models.TimeField()
-    preparation_dteps_is_html = models.BooleanField(default=False)
+    preparation_steps = models.TextField()
+    preparation_steps_is_html = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add = True)
     updated_at = models.DateTimeField(auto_now = True)
     is_published = models.BooleanField(default=False)
@@ -26,11 +28,3 @@ class Recipe(models.Model):
 
     def __str__(self) -> str:
         return self.title
-
-
-
-
-
-
-
-

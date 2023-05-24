@@ -10,7 +10,7 @@
 
 ### Models
 
-- subclasse de django.db.models.Model
+- subclasse de *django.db.models.Model*
 - cada model = uma tabela do banco de dados
 - atributos do model = campos da tabela
 - campo *id* é implementado automaticamente
@@ -18,7 +18,7 @@
   `class Person(models.Model):`
 
 ### Fields
-- tipos de campo mais usados
+- tipos de campos mais usados
   - CharField(max_length=25)
   - IntegerField()
   - SlugField()
@@ -29,6 +29,9 @@
     - auto_now = True -> salva data da atualização
   - ImageField()
     - upload_to='path_to_images_files'
+    - configurar:
+      - **MEDIA_URL** e **MEDIA_ROOT**, em `settings.py`
+      - `urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)`, em urls.py
 
 ### Relacionamentos
 
@@ -43,9 +46,9 @@
 
 ### Migrations
 
-- criar o model
-- `python manage.py makemigrations`
-- `python manage.py migrate`
+- criar ou alterar o model:
+  - `python manage.py makemigrations` 
+  - `python manage.py migrate`
 - evitar editar os arquivos de migração
 
 
@@ -65,10 +68,33 @@
     admin.site.register(Category, CategoryAdmin) <-
     ```
 
-#### Exibir um campo do objeto na listagem
+#### Customizando a interface
+##### Listar pelo valor de um dos campos
 
 - usar o metódo mágico `__str__()`
 ```
     def __str__(self) -> str:
             return self.<nome_do_campo>
+```
+
+##### Exibir mais campos na listagem
+
+- em admin.py, na clase da tabela, adicionar: <br>
+  `list_display = ('name', 'created_at')`
+- para listar todos campos<br>
+  `list_display = [field.name for field in Category._meta.get_fields()]`
+
+##### Gerando campo slug automaticamente
+
+- em admin.py, na clase da tabela, adicionar: <br>
+  `prepopulated_fields = {"slug": ("title",)}`
+
+##### Ordenando campos
+
+- em admin.py, na clase da tabela, adicionar:
+```
+    # sorting by name
+    @admin.display(ordering='name')
+    def name(self, obj):
+        return obj.name
 ```

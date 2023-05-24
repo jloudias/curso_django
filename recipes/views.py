@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from utils.recipes.factory import make_recipe
+from .models import Recipe
 
 
 # Create your views here.
@@ -13,7 +14,7 @@ def home(request):
     # })
 
     return render(request, 'recipes/pages/home.html', context = {
-        'recipes':[make_recipe() for _ in range(10)],
+        'recipes':Recipe.objects.all(),
     })
 
 def recipe(request, id):
