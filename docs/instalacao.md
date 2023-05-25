@@ -45,6 +45,15 @@
         ]
     }
     ```
+- terminal com ipython
+  - no _seetings.json_, adicione o código abaixo:
+   ```
+    "python.terminal.launchArgs": [
+          "-m",
+          "IPython",
+          "--no-autoindent",
+      ],
+    ```
 
 ### Instalação do Django
 - instalando pré-requisitos

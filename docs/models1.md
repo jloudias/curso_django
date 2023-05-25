@@ -98,3 +98,51 @@
     def name(self, obj):
         return obj.name
 ```
+
+### Shell
+
+- o shell utiliza o manage *objects*
+- inicialização do ambiente:
+  ```
+    python manage.py shell
+    >>> from recipe.models import Category, Recipe
+  ```
+- save() : salva dados no banco de dados
+- modo lazy -> faz operações na memória e só chama o bd qdo necessário (save, list, etc)
+- QuerySet é um iterable
+
+
+### Comando mais usados.
+
+- READ
+  - Category.objects.all()
+  - Category.objects.all().first()
+  - Category.objects.all().first().name
+  - categories = Category.objects.all() -> gera um QuerySet
+    - categories.order_by('id')  -> ASC
+    - categories.order_by('-id') -> DESC
+    - categories[:2] -> busca dois primeiros registros
+  - Category.objects.all().filter(name='Vegano')
+  - Category.objects.get(id=5) -> mesmo q filter, mas retorna erro qdo não encontra nada
+  - FOREIGN KEY
+    - recipes = Recipe.objects.all()
+    - recipes.filter(category__name="Cafe da Manhã")
+
+- CREATE
+  - new_cat = Category(name = 'Saladas')
+  - new_cat.save()
+  - Category.objects.create(name = 'Frutas') -> cria e salva direto
+
+- UPDATE
+  - new_cat.name = 'Teste' -> altera o
+  - new_cat.save()
+
+- DELETE
+  - Category.Objects.all().first().delete()
+  - save()
+
+
+- ESTRUTURA
+  - receita = Recipe.objects.all().first()
+  - receita._meta.get_fields()
+  - getattr(recipe, 'id') -> busca valor do campo
