@@ -116,7 +116,7 @@
 
 - READ
   - Category.objects.all()
-  - Category.objects.all().first()
+  - Category.objects.all().first() `IMPORTANTE` -> para trazer só um registro, use first()
   - Category.objects.all().first().name
   - categories = Category.objects.all() -> gera um QuerySet
     - categories.order_by('id')  -> ASC

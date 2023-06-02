@@ -51,6 +51,7 @@
             }
         }
     ``` 
+- na visualização, `<nome_do_campo_imagem>.url` exibe o path para imagem
 - REFERÊNCIA: [Faker Documentation](https://faker.readthedocs.io/en/master/)
 
 
