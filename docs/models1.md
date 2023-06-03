@@ -146,3 +146,9 @@
   - receita = Recipe.objects.all().first()
   - receita._meta.get_fields()
   - getattr(recipe, 'id') -> busca valor do campo
+
+#### Criando um usuário no shell
+  ```
+  >>> from django.contrib.auth.models import User
+  >>> User.objects.create_user(first_name='Peter', last_name='Parker', username='pparker', email='pparker@gmail.com', password='senha1234')
+  ```
