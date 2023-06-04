@@ -177,4 +177,15 @@
     if not recipes:
         raise Http404('Categoria não encontrada')
   ```
+- Opção 3 - Usando módulos `get_list_or_404()` e `get_object_or_404()`
+  - get_list_or_404() : retorna uma lista ou a erro 404
+  - get_object_or_404 : retorna um objeto único ou erro 404 
+  ```
+  from django.shortcuts import get_list_or_404, get_object_or_404
+  ...
+  recipes = get_list_or_404(Recipe.objects.filter(
+        category__id=category_id, is_published=True).order_by('-id'))
+  ```
+
+  `ATENÇÃO`: Como é uma lista, utilizar índices. (recipes[0])
 
