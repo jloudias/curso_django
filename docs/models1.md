@@ -152,3 +152,29 @@
   >>> from django.contrib.auth.models import User
   >>> User.objects.create_user(first_name='Peter', last_name='Parker', username='pparker', email='pparker@gmail.com', password='senha1234')
   ```
+### Tratando valores retornados como None (Aula 62)
+- Opção 1 - Usando o getattr()
+  - `getattr(objeto, valor_caso_none)`
+  - busca um objeto e retorna um valor especificado se o retorno for None
+  - suporta aninhamentos
+  ```
+    category_name = getattr(
+      getattr(recipes.first(), 'category', None),
+      'name',
+      'Nada encontrado'
+    )
+  ```
+- Opção 2 - Usando HTTPResponse e HTTP
+  ```
+    if not recipes:
+        return HttpResponse(content='Category Not Found', status=404)
+  ```
+  ou
+
+  ```
+    from django.http import Http404
+    ...
+    if not recipes:
+        raise Http404('Categoria não encontrada')
+  ```
+
