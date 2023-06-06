@@ -160,5 +160,10 @@ As seguintes configurações merecem destaque:
     git commit -m "first commit"
     git push
     ```
+    
+### Internacionalização
 
+- editar *settings.py*, na pasta do projeto
+  - LANGUAGE_CODE = 'pt-br'
+  - TIME_ZONE = 'America/Sao_Paulo'
 	
