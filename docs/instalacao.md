@@ -4,6 +4,12 @@
 - instalar Python
   - marcar opção "Add Python to PATH"
 - criar ambiente virtual
+  - instância específica de um interpretador e pacotes Python
+  - evita colisão de namespaces
+  - não requer permissões de administrador para instalar pacotes Python
+  - não sofre interferência das modificações efetuadas em outros projetos ou no sistema geral
+  - pacotes que criam ambientes virtuais: venv (default), pipenv, virtualenv
+  - ambiente virtual com `venv`
     ```
     mkdir <projeto> 
     cd <projeto>
@@ -54,6 +60,18 @@
           "--no-autoindent",
       ],
     ```
+#### Extensões recomendadas
+- Python (Microsoft)
+- Django (Baptiste Sarthnay)
+- Material Icon Theme
+- Om Theme
+- Emoji
+- Markdown All in One
+- HTML CSS Support
+- json
+- SQLite Viewer
+- vscode-pdf
+- Modelo de [settings.json customizado](https://gist.github.com/luizomf/276820fed43130edaf4fa8ab3c57a0a1) (opcional)
 
 ### Instalação do Django
 - instalando pré-requisitos

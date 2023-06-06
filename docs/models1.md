@@ -178,7 +178,7 @@
         raise Http404('Categoria não encontrada')
   ```
 - Opção 3 - Usando módulos `get_list_or_404()` e `get_object_or_404()`
-  - get_list_or_404() : retorna uma lista ou a erro 404
+  - get_list_or_404() : retorna uma lista ou erro 404
   - get_object_or_404 : retorna um objeto único ou erro 404 
   ```
   from django.shortcuts import get_list_or_404, get_object_or_404

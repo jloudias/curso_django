@@ -1,12 +1,10 @@
 from django.shortcuts import render, get_list_or_404, get_object_or_404
-from django.http import HttpResponse, Http404
+from django.http import HttpResponse, Http404, HttpRequest
 from utils.recipes.factory import make_recipe
 from .models import Recipe, Category
 
-# Create your views here.
 
-
-def home(request):
+def home(request:HttpRequest)->HttpResponse:
     '''Exibe todas as receitas em home.html'''
     recipes = Recipe.objects.filter(is_published=True).order_by('-id')
 
@@ -15,7 +13,7 @@ def home(request):
     })
 
 
-def category(request, category_id):
+def category(request:HttpRequest, category_id:int)->HttpResponse:
     '''Exibe as receitas filtradas por categoria em home.html '''
     # recipes = Recipe.objects.filter(category__id = category_id, is_published = True).order_by('-id')
 
@@ -32,9 +30,11 @@ def category(request, category_id):
     })
 
 
-def recipe(request, recipe_id):
+def recipe(request:HttpRequest, recipe_id:int)->HttpResponse:
     '''Exibe detalhes da receita em recipe_view.html'''
-    recipe = Recipe.objects.filter(pk=recipe_id, is_published=True).first()
+    # recipe = Recipe.objects.filter(pk=recipe_id, is_published=True).first()
+    
+    recipe = get_object_or_404(Recipe, pk=recipe_id, is_published=True)
     return render(request, 'recipes/pages/recipe-view.html', context={
         'recipe': recipe,
         'is_detail_page': True,
