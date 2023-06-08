@@ -87,8 +87,10 @@
     pip freeze                      # lista pacotes instalados no ambiente virtual
     ```
 - criar projeto no django
+  - criar a pasta e os arquivos de configurações gerais do projeto
+  - muitos desenvolvedores nomeiam essa pasta como *config* outros chamam de *project*
     ```
-    django-admin startproject <projeto> .    # o ponto evita duplicidade de pastas
+    django-admin startproject <nome_da_pasta_do_projeto> .    # o ponto evita duplicidade de pastas
     ```
 - testar a instalação:
     ```

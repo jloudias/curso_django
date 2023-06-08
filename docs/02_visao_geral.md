@@ -1,6 +1,6 @@
 ## Visão Geral 
 
-### Workflow
+### Fluxo de Trabalho
 |SEQ|AÇÃO|CÓDIGO|
 |:--:|:---|:---:|
 |1| Criar o projeto|django-admin startproject <projeto>|
@@ -14,7 +14,7 @@
 ### Diferença entre Projeto e Aplicação
 
 - PROJETO:
-  - é uma instalação do Django com algumas configurações
+  - é uma instalação do Django com algumas configurações gerais
 - APLICAÇÃO:
   - é um grupo de models, views, templates e urls.
   - interage com o framework para prover funcionalidades específicas
