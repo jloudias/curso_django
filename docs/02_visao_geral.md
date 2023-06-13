@@ -35,7 +35,7 @@
 - registrar a aplicação no projeto (evita erro "Template Not Found")
 	- settings.py
 	- INSTALLED_APPS
-    	- § '<nome_app_registrado_em_apps.py>',
+    	- '<nome_app_registrado_em_apps.py>',
 - aplicações instaladas por default: 
     - admin --> gerenciar nossos dados
     - auth --> autenticação de usuários
@@ -171,4 +171,6 @@
 
 - [A linguagem de template do Django](https://docs.djangoproject.com/pt-br/4.2/ref/templates/language/)
 - [Referência para tags e filters](https://docs.djangoproject.com/pt-br/4.2/ref/templates/builtins/#)
+
+
 

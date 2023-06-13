@@ -94,5 +94,31 @@
     - o bloco branding do template pai será utilizado com a inserção da imagem com o logo
 - blocos não podem ter o mesmo nome no mesmo template
 
+### BÔNUS - Adicionando Bootstrap 5 ao projeto
 
+- Habilite o ambiente virtual e instale o módulo via pip
+
+  ```
+  .venv\Scripts\activate 
+  pip install django-bootstrap-v5
+  ```
+- Edite o arquivo de configuração do projeto `settings.py`
+  
+  ```
+  INSTALLED_APPS = [
+    ...
+    'bootstrap5',
+  ]
+  ```
+- Use o bootstrap, adicionando o módulo na seção `<head>` , do template master:
+
+  ```
+  <head>
+    <title> ... </title>
+    ...
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    ...
+  </head>
 

@@ -86,12 +86,13 @@
     python -m pip install django
     pip freeze                      # lista pacotes instalados no ambiente virtual
     ```
-- criar projeto no django
-  - criar a pasta e os arquivos de configurações gerais do projeto
-  - muitos desenvolvedores nomeiam essa pasta como *config* outros chamam de *project*
+- criar projeto no django 
     ```
     django-admin startproject <nome_da_pasta_do_projeto> .    # o ponto evita duplicidade de pastas
     ```
+  - cria a pasta e os arquivos de configurações gerais do projeto
+  - muitos desenvolvedores nomeiam essa pasta como *config* outros preferem *project*
+    
 - testar a instalação:
     ```
     python manage.py runserver
@@ -129,7 +130,7 @@ As seguintes configurações merecem destaque:
 - DATABASES:
   - dicionário com as configurações das bases de dados do projeto.
   - é obrigatório definir um banco de dados padrão.
-  - defult -> SQLite3 database.
+  - default -> SQLite3 database.
 - LANGUAGE_CODE:
   - língua default do site
 
