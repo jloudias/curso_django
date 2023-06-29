@@ -10,17 +10,23 @@
 ### Pytest
 
 #### Instalação
-    ```python -m pip install pytest pytest-django```
+
+   ``` python -m pip install pytest pytest-django ```
+- criar arquivo *pytest.ini*,  no diretório raiz
+
+> [pytest]<br>
+> DJANGO_SETTINGS_MODULE = project.settings<br>
+> python_files = test.py tests.py test_*.py tests_*.py *_test.py *_tests.py<br>
 
 - editar *settings.json* do vscode:
-    {
-        "python.testing.unittestEnabled": false,
-        "python.testing.pytestEnabled": true,
-        "python.testing.pytestArgs": [
-            "."
-        ],
-    }
-    
+```
+{
+  'python.testing.unittestEnabled': false,
+  'python.testing.pytestEnabled': true,
+  'python.testing.pytestArgs': [], 
+}
+```   
+
 #### Primeiro teste
 
 - editar arquivo tests.py, no diretório da aplicação (recipes)
