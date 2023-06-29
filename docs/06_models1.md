@@ -2,7 +2,7 @@
 
 ### Admin - Base de dados inicial
 
-- criando a base de dados da app `admin`
+- base de dados da app `admin`
 ```
     python manage.py migrate
     python manage.py createsuperuser
@@ -14,7 +14,7 @@
 - cada model = uma tabela do banco de dados
 - atributos do model = campos da tabela
 - campo *id* é implementado automaticamente
-- uma *class* em *models.py* da app <br>
+- é uma *class* em *models.py* da app <br>
   `class Person(models.Model):`
 
 ### Fields

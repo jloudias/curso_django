@@ -38,7 +38,7 @@
 ### Servidor de produção
 
 - configurações usadas no ambiente de desenvolvimento não valem para o ambiente de produção
-- se `DEBUG = False`, no sevidor de produção fazer:
+- se `DEBUG = False`, no servidor de produção fazer:
   - criar pasta *static* na raiz do projeto
   - configurar STATIC_ROOT
     ```
