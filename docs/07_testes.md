@@ -41,4 +41,15 @@
   - ```pytest```                 ::::: para test runner pytest
   - ```python manage.py test```  ::::: para test runner Unittest (padrão do Django)
   
+#### Teste de urls e views
 
+- criar pasta *tests*, na pasta da app, para armazenar os arquivos de teste
+- adicionar *__init__.py*, para pasta ser reconhecida como pacote
+- criar arquivo comecçando por *test_* para cada conjunto de testes
+- criar classe e definir os métodos para os testes 
+- importar de *django.urls* os métodos:
+  - reverse(nome_da_URL) ::: dada uma rota, retorna a url
+  - resolve(url)  ::: dada uma url, retorna a view 
+- asserts utilizados:
+  - assertEqual ::: compara valores
+  - assertIs  ::: compara objetos
