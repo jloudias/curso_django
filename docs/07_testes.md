@@ -53,3 +53,16 @@
 - asserts utilizados:
   - assertEqual ::: compara valores
   - assertIs  ::: compara objetos
+
+#### Testando o template usado e status code
+
+- self.client()  ::: objeto do Unittest, que recebe todas informações que uma url enviaria a um cliente
+- criar uma variável *response* que receba o HttpResponse retornado pela view para o cliente
+
+  ```response = self.client.get(reverse('recipes:home'))```
+
+- assertTemplateUsed ::: informa o template utilizado
+  
+  ```self.assertEqual(response.status_code, 200)```
+
+  ```self.assertTemplateUsed(response, 'recipes/pages/home.html')```
