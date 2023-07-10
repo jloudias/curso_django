@@ -66,3 +66,12 @@
   ```self.assertEqual(response.status_code, 200)```
 
   ```self.assertTemplateUsed(response, 'recipes/pages/home.html')```
+
+### Executar um único teste
+
+  ```pytest -k 'nome_do_teste' ```   (no pytest)
+
+  ou
+
+  ```python .\manage.py test -k 'nome_do_teste' ```  (no Unittest)
+
