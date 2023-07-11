@@ -6,6 +6,7 @@
 - no python:
   - Unittest : default do Django
   - Pytest : será utilizado no curso
+- testes são realizados em uma base de dados vazia, carregada na memória.
 
 ### Pytest
 
@@ -75,3 +76,6 @@
 
   ```python .\manage.py test -k 'nome_do_teste' ```  (no Unittest)
 
+### Populando a base de dados de teste
+
+- criar um teste contendo os comandos de criação de dados do shell
