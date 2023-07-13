@@ -79,3 +79,30 @@
 ### Populando a base de dados de teste
 
 - criar um teste contendo os comandos de criação de dados do shell
+- utize *pass* e excute o teste
+
+### Duplicar dados
+- no django shell, crie uma variável com os dados a serem duplicados
+- faça o id = None para evitar que o Django atualize o registro, em vez de duplicá-lo
+- salve o registro
+- utilize um for para duplicar vários registros
+
+``` 
+r = Recipe.objects.get(id=2)
+r.id = None
+r.save()
+
+for i in range(10): r.id=None; r.save()
+```
+
+### Criando slug único
+
+- no *models.py*, configure o campo slug com *unique=True*
+- use um *for indexado* para adicionar um índice ao valor do *slug*
+
+```
+from models.py import Recipe
+recipes = Recipe.objects.all()
+
+for index, recipe in enumerate(recipes): recipe.slug = f'{recipe.slug}-index'; recipe.save()
+```
