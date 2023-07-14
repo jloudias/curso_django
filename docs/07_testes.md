@@ -106,3 +106,11 @@ recipes = Recipe.objects.all()
 
 for index, recipe in enumerate(recipes): recipe.slug = f'{recipe.slug}-index'; recipe.save()
 ```
+
+### TDD: Test Driven Development
+
+- criar  teste antes do código de desenvolvimento
+- RED -> GREEN -> REFACTORY
+  - teste da erro
+  - implementar o mínimo necessário para eliminar o erro
+  - refatorar, se necessário

@@ -39,3 +39,8 @@ def recipe(request: HttpRequest, recipe_id: int) -> HttpResponse:
         'recipe': recipe,
         'is_detail_page': True,
     })
+
+def search(request: HttpRequest)-> HttpResponse:
+    '''Página de pesquisa'''
+   
+    return HttpResponse("<h1>TODO: implement search view</h1>")

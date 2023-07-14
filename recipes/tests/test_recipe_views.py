@@ -82,3 +82,10 @@ class RecipeViewsTest(TestCase):
         response = self.client.get(
             reverse('recipes:recipe', kwargs={'recipe_id':1}))  # recipe_id -> nome do parâmetro usado na url
         self.assertEqual(response.status_code, 404)
+
+    # Search
+    # -------
+
+    def test_recipe_search_uses_correct_view_function(self):
+        resolved = resolve(reverse('recipes:search'))
+        self.assertIs(resolved.func, views.search)
