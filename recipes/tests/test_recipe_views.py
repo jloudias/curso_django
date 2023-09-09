@@ -2,13 +2,46 @@ from django.test import TestCase
 from django.urls import reverse  # dado o nome da url, retorna a url completa
 from django.urls import resolve  # dado um url, retorna a view a que se refere
 from recipes import views
-from recipes.models import Category, Recipe, User # como User foi importado em models.py, pode ser chamado por tabela
+# como User foi importado em models.py, pode ser chamado por tabela
+from recipes.models import Category, Recipe, User
 # from django.contrib.auth.models import User  # chamando User da forma direta
 
 
 # Create your tests here.
 class RecipeViewsTest(TestCase):
     ''' Testa urls da aplicação '''
+
+    # setUP é um método da classe TestCase sempre executado antes de cada teste
+    def setUp(self) -> None:
+        # populando a base de dados de testes (memória)
+        category = Category.objects.create(name='Castegory')
+        author = User.objects.create_user(
+            first_name='user',
+            last_name='name',
+            username='username',
+            password='123455',
+            email='username@email.com'
+        )
+        recipe = Recipe.objects.create(
+            category=category,
+            author=author,
+            title='Recipe Title',
+            description='Recipe Description',
+            slug='recipe-slug',
+            preparation_time=10,
+            preparation_time_unit='Minutos',
+            servings=5,
+            servings_unit='Porções',
+            preparation_steps='Recipe Preparation Steps',
+            preparation_steps_is_html=False,
+            is_published=True,
+        )
+        return super().setUp()
+
+    # tearDown é um método da classe TestCase sempre executado depois de cada  tese
+
+    def tearDown(self) -> None:
+        return super().tearDown()
 
     # Home
     # ----
@@ -33,35 +66,18 @@ class RecipeViewsTest(TestCase):
 
     def test_recipe_home_template_loads_recipes(self):
 
-        # populando a base de dados de testes (memória)
-        category = Category.objects.create(name='Castegory')
-        author = User.objects.create_user(
-            first_name = 'user',
-            last_name = 'name',
-            username = 'username',
-            password='123455',
-            email='username@email.com'
-        )
-        recipe = Recipe.objects.create(
-            category=category,
-            author=author,
-            title='Recipe Title',
-            description='Recipe Description',
-            slug='recipe-slug',
-            preparation_time=10,
-            preparation_time_unit='Minutos',
-            servings=5,
-            servings_unit='Porções',
-            preparation_steps='Recipe Preparation Steps',
-            preparation_steps_is_html=False,
-            is_published=True,
-        ) 
         response = self.client.get(reverse('recipes:home'))
-        pass
-
+        content = response.content.decode('utf-8')
+        response_context_recipes = response.content['recipes']
+        
+        self.assertIn('Recipe Title', content)
+        self.assertIn('10 minutos', content)
+        self.assertIn('5 Porções', content)
+        self.assertEqual(len(response_context_recipes),1)
 
     # Category
     # --------
+
     def test_recipes_category_view_function_is_correct(self):
         view = resolve(reverse('recipes:category',
                        kwargs={'category_id': 1000}))
@@ -80,7 +96,7 @@ class RecipeViewsTest(TestCase):
 
     def test_recipe_detail_view_returns_404_if_no_recipes_found(self):
         response = self.client.get(
-            reverse('recipes:recipe', kwargs={'recipe_id':1}))  # recipe_id -> nome do parâmetro usado na url
+            reverse('recipes:recipe', kwargs={'recipe_id': 1}))  # recipe_id -> nome do parâmetro usado na url
         self.assertEqual(response.status_code, 404)
 
     # Search
