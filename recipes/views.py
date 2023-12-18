@@ -5,42 +5,65 @@ from .models import Recipe, Category
 
 
 def home(request: HttpRequest) -> HttpResponse:
-    '''Exibe todas as receitas em home.html'''
-    recipes = Recipe.objects.filter(is_published=True).order_by('-id')
+    """Exibe todas as receitas em home.html"""
+    recipes = Recipe.objects.filter(is_published=True).order_by("-id")
 
-    return render(request, 'recipes/pages/home.html', context={
-        'recipes': recipes,
-    })
+    return render(
+        request,
+        "recipes/pages/home.html",
+        context={
+            "recipes": recipes,
+        },
+    )
 
 
 def category(request: HttpRequest, category_id: int) -> HttpResponse:
-    '''Exibe as receitas filtradas por categoria em home.html '''
+    """Exibe as receitas filtradas por categoria em home.html"""
     # recipes = Recipe.objects.filter(category__id = category_id, is_published = True).order_by('-id')
 
     # if not recipes:
     #     # return HttpResponse(content='Category Not Found', status=404)
     #     return Http404("Not Found 😞😞😞")
 
-    recipes = get_list_or_404(Recipe.objects.filter(
-        category__id=category_id, is_published=True).order_by('-id'))
+    recipes = get_list_or_404(
+        Recipe.objects.filter(category__id=category_id, is_published=True).order_by(
+            "-id"
+        )
+    )
 
-    return render(request, 'recipes/pages/category.html', context={
-        'recipes': recipes,
-        'title': f"{recipes[0].category.name} - Category",
-    })
+    return render(
+        request,
+        "recipes/pages/category.html",
+        context={
+            "recipes": recipes,
+            "title": f"{recipes[0].category.name} - Category",
+        },
+    )
 
 
 def recipe(request: HttpRequest, recipe_id: int) -> HttpResponse:
-    '''Exibe detalhes da receita em recipe_view.html'''
+    """Exibe detalhes da receita em recipe_view.html"""
     # recipe = Recipe.objects.filter(pk=recipe_id, is_published=True).first()
 
     recipe = get_object_or_404(Recipe, pk=recipe_id, is_published=True)
-    return render(request, 'recipes/pages/recipe-view.html', context={
-        'recipe': recipe,
-        'is_detail_page': True,
-    })
+    return render(
+        request,
+        "recipes/pages/recipe-view.html",
+        context={
+            "recipe": recipe,
+            "is_detail_page": True,
+        },
+    )
 
-def search(request: HttpRequest)-> HttpResponse:
-    '''Página de pesquisa'''
-   
-    return HttpResponse("<h1>TODO: implement search view</h1>")
+
+def search(request: HttpRequest) -> HttpResponse:
+    """Página de pesquisa"""
+    search_term = request.GET.get("q")
+    if not search_term:
+        raise Http404()
+
+    return render(
+        request,
+        "recipes/pages/search.html",
+        {"page_title": f'Search for "{search_term}"'},
+    )
